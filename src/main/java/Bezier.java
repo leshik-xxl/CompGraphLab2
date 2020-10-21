@@ -66,22 +66,22 @@ public class Bezier {
 
     public static ArrayList<Point> scalePlus(ArrayList<Point> sourcePoints) {
         for (Point point : sourcePoints) {
-            point.setX((int) (point.getX() * 1.05));
-            point.setY((int) (point.getY() * 1.05));
+            point.setX((int) (point.getX() * 1.1));
+            point.setY((int) (point.getY() * 1.1));
         }
         return sourcePoints;
     }
 
     public static ArrayList<Point> scaleMinus(ArrayList<Point> sourcePoints) {
         for (Point point : sourcePoints) {
-            point.setX((int) (point.getX() * 0.95));
-            point.setY((int) (point.getY() * 0.95));
+            point.setX((int) (point.getX() * 0.9));
+            point.setY((int) (point.getY() * 0.9));
         }
         return sourcePoints;
     }
 
     public static ArrayList<Point> corn(ArrayList<Point> sourcePoints) {
-        double corner = Math.toRadians(2.0);
+        double corner = Math.toRadians(5.0);
         boolean first = true;
         for (Point point : sourcePoints) {
             point.setX((int) ((point.getX() * Math.cos(corner)) - (point.getY() * Math.sin(corner))));

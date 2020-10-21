@@ -14,53 +14,69 @@ public class BoardPanel extends JComponent {
     private KeyAdapter kl = new KeyAdapter() {
         @Override
         public void keyPressed(KeyEvent e) {
-            ArrayList<Point> temp = new ArrayList<Point>(finalPoint);
+            ArrayList<Point> temp = new ArrayList<Point>(srcPoint);
             switch (e.getKeyCode()) {
                 case KeyEvent.VK_RIGHT:
+                    srcPoint.clear();
+                    srcPoint.addAll(Bezier.goToRight(temp));
                     finalPoint.clear();
-                    finalPoint.addAll(Bezier.goToRight(temp));
+                    finalPoint.addAll(Bezier.bezierGoGo(srcPoint));
                     temp.clear();
                     repaint();
                     break;
                 case KeyEvent.VK_LEFT:
+                    srcPoint.clear();
+                    srcPoint.addAll(Bezier.goToLeft(temp));
                     finalPoint.clear();
-                    finalPoint.addAll(Bezier.goToLeft(temp));
+                    finalPoint.addAll(Bezier.bezierGoGo(srcPoint));
                     temp.clear();
                     repaint();
                     break;
                 case KeyEvent.VK_UP:
+                    srcPoint.clear();
+                    srcPoint.addAll(Bezier.goToUP(temp));
                     finalPoint.clear();
-                    finalPoint.addAll(Bezier.goToUP(temp));
+                    finalPoint.addAll(Bezier.bezierGoGo(srcPoint));
                     temp.clear();
                     repaint();
                     break;
                 case KeyEvent.VK_DOWN:
+                    srcPoint.clear();
+                    srcPoint.addAll(Bezier.goToDown(temp));
                     finalPoint.clear();
-                    finalPoint.addAll(Bezier.goToDown(temp));
+                    finalPoint.addAll(Bezier.bezierGoGo(srcPoint));
                     temp.clear();
                     repaint();
                     break;
                 case KeyEvent.VK_9:
+                    srcPoint.clear();
+                    srcPoint.addAll(Bezier.scalePlus(temp));
                     finalPoint.clear();
-                    finalPoint.addAll(Bezier.scalePlus(temp));
+                    finalPoint.addAll(Bezier.bezierGoGo(srcPoint));
                     temp.clear();
                     repaint();
                     break;
                 case KeyEvent.VK_0:
+                    srcPoint.clear();
+                    srcPoint.addAll(Bezier.scaleMinus(temp));
                     finalPoint.clear();
-                    finalPoint.addAll(Bezier.scaleMinus(temp));
+                    finalPoint.addAll(Bezier.bezierGoGo(srcPoint));
                     temp.clear();
                     repaint();
                     break;
                 case KeyEvent.VK_U:
+                    srcPoint.clear();
+                    srcPoint.addAll(Bezier.corn(temp));
                     finalPoint.clear();
-                    finalPoint.addAll(Bezier.corn(temp));
+                    finalPoint.addAll(Bezier.bezierGoGo(srcPoint));
                     temp.clear();
                     repaint();
                     break;
                 case KeyEvent.VK_M:
+                    srcPoint.clear();
+                    srcPoint.addAll(Bezier.mirror(temp));
                     finalPoint.clear();
-                    finalPoint.addAll(Bezier.mirror(temp));
+                    finalPoint.addAll(Bezier.bezierGoGo(srcPoint));
                     temp.clear();
                     repaint();
                     break;
